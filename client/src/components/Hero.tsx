@@ -1,16 +1,16 @@
 import React from "react";
 
-const logo = require("../assets/group.png");
+const laptop = require("../assets/laptop.jpg");
 
 const Hero = () => {
     return (
         <div className="w-full bg-white py-16 px-4">
-            <div className="max-w-[1240px] mx-auto grid md:grid-cols-2 ">
+            <div className="max-w-[1240px] mx-auto grid md:grid-cols-2">
                 <div className="flex flex-col text-black justify-between">
                     <h1 className="md:text-4xl sm:text-3xl text-2xl font-poppins py-2 text-left border-b-8 border-yellow">
                         Connect and Elevate your Disc Time
                     </h1>
-                    <p className="text-2xl font-montserrat text-left text-darkgrey">
+                    <p className="text-2xl font-montserrat text-left text-darkgrey font-normal">
                         The best place to connect and stay in the loop with the
                         goings of the Frisbee Community
                     </p>
@@ -23,7 +23,13 @@ const Hero = () => {
                         </button>
                     </div>
                 </div>
-                <img className="w-[500px] mx-auto my-4" src={logo} alt="/" />
+                <div className="align-">
+                    <img
+                        className="w-[500px] mx-auto my-4"
+                        src={laptop}
+                        alt="/"
+                    />
+                </div>
             </div>
         </div>
     );
