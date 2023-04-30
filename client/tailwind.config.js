@@ -11,6 +11,7 @@ module.exports = {
       'darkgrey': '#989898',
       'white': '#F0F0F0',
       'buttonblack': "#494B4E",
+      'green': '#47924B',
     },
     extend: {
       fontFamily: {

@@ -5,7 +5,7 @@ const Rules = () => {
         <div className="w-full bg-black py-16 px-4 rounded-lg">
             <div className="max-w-[1240px] mx-auto grid md:grid-cols-2">
                 <img className="w-[500px] mx-auto my-4" src={logo} alt="/" />
-                <div className="flex flex-col justify-center gap-5">
+                <div className="flex flex-col justify-center gap-10">
                     <h1 className="md:text-4xl sm:text-3xl text-2xl font-bold text-white py-2 text-poppins">
                         New to Ultimate?
                     </h1>
