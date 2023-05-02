@@ -34,10 +34,14 @@ export default function Header({
                     {linkName}
                 </Link>
             </p>
-            <p className="text-center text-sm text-black mt-5 font-poppins">
+            <p
+                className={` text-center text-sm text-black mt-5 font-poppins ${
+                    club ? "" : "hidden"
+                }`}
+            >
                 Interested in creating a club account?
                 <Link
-                    to="/register"
+                    to="/clubregister"
                     className="font-medium text-orange hover:text-lime font-poppins"
                 >
                     Club Registration

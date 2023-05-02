@@ -16,7 +16,7 @@ const userSchema = new Schema({
         required: false
     },
     years: {
-        type: Number,
+        type: String,
         required: true
     },
     position: {

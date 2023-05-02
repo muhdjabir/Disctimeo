@@ -27,10 +27,10 @@ const getUser = async (req, res) => {
 
 // Create a new user
 const createUser = async (req, res) => {
-    const {name, years, position, level} = req.body;
+    const {name, contact, years, position, level} = req.body;
     // Add doc to db
     try {
-        const user = await User.create({name, years, position, level})
+        const user = await User.create({name, contact, years, position, level})
         res.status(200).json(user);
     } catch(error) {
         res.status(400).json({error: error.message});

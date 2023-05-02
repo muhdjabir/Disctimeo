@@ -8,6 +8,7 @@ type SelectorTypes = {
 };
 
 const Selector = ({ options, comp, updateState }: SelectorTypes) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [entries, setEntries] = useState(options);
     const [inputValue, setInputValue] = useState("");
     const [selected, setSelected] = useState("");

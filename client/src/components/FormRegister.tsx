@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSignup } from "../hook/useSignup";
 import Selector from "./Selector";
 
 const FormRegister = () => {
@@ -9,6 +10,7 @@ const FormRegister = () => {
     const [position, setPosition] = useState<String>("");
     const [level, setLevel] = useState<String>("");
     const [contact, setContact] = useState<String>("");
+    const { signup, error, isLoading } = useSignup();
 
     const role = ["Handler", "Cutter", "Hybrid"];
     const years = [
@@ -21,7 +23,16 @@ const FormRegister = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(email, name, password, contact, position, year, level);
+        await signup(
+            email,
+            password,
+            "Player",
+            name,
+            contact,
+            position,
+            year,
+            level
+        );
     };
 
     return (
@@ -36,6 +47,7 @@ const FormRegister = () => {
                         className="rounded-lg text-xl bg-white mt-2 p-2  focus:bg-white focus:outline-none"
                         type="email"
                         onChange={(e) => setEmail(e.target.value)}
+                        required
                     />
                 </div>
                 <div className="flex flex-col text-gray-400 py-2 text-xl">
@@ -44,6 +56,7 @@ const FormRegister = () => {
                         className="rounded-lg bg-white mt-2 p-2 text-xl focus:bg-white focus:outline-none"
                         type="text"
                         onChange={(e) => setName(e.target.value)}
+                        required
                     />
                 </div>
                 <div className="flex flex-col text-gray-400 py-2 text-xl">
@@ -52,6 +65,7 @@ const FormRegister = () => {
                         className="rounded-lg bg-white mt-2 p-2 text-xl  focus:bg-white focus:outline-none"
                         type="number"
                         onChange={(e) => setContact(e.target.value)}
+                        required
                     />
                 </div>
                 <div className="flex flex-col text-gray-400 py-2 text-xl">
@@ -60,10 +74,11 @@ const FormRegister = () => {
                         className="rounded-lg bg-white mt-2 p-2 text-xl  focus:bg-white focus:outline-none"
                         type="password"
                         onChange={(e) => setPassword(e.target.value)}
+                        required
                     />
                 </div>
                 <div className="flex flex-col text-gray-400 py-2 text-xl">
-                    <label>Choose your position</label>
+                    <label>Position</label>
                     <Selector
                         options={role}
                         comp="Position"
@@ -72,7 +87,7 @@ const FormRegister = () => {
                     <label>Years of Experience</label>
                     <Selector
                         options={years}
-                        comp="Years of experience"
+                        comp="years of experience"
                         updateState={setYear}
                     />
                     <label>Commitment Level</label>
@@ -82,9 +97,13 @@ const FormRegister = () => {
                         updateState={setLevel}
                     />
                 </div>
-                <button className="w-full my-5 py-2 bg-orange shadow-lg   text-black font-semibold rounded-lg">
+                <button
+                    className="w-full my-5 py-2 bg-orange shadow-lg   text-black font-semibold rounded-lg"
+                    disabled={isLoading === true ? true : false}
+                >
                     Sign Up
                 </button>
+                {error && <div className="error">{error}</div>}
             </form>
         </div>
     );

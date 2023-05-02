@@ -7,6 +7,7 @@ import Feed from "./pages/Feed";
 import Navbar from "./components/Navbar";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import ClubRegister from "./pages/ClubRegister";
 
 function App() {
     return (
@@ -18,6 +19,10 @@ function App() {
                         <Route path="/" element={<Home />} />
                         <Route path="/feed" element={<Feed />} />
                         <Route path="/register" element={<Register />} />
+                        <Route
+                            path="/clubregister"
+                            element={<ClubRegister />}
+                        />
                         <Route path="/login" element={<Login />} />
                     </Routes>
                 </div>
