@@ -36,7 +36,7 @@ const FormRegister = () => {
     };
 
     return (
-        <div className="bg-white flex flex-col justify-center font-montserrat">
+        <div className="bg-white flex flex-col justify-center font-montserrat font-normal">
             <form
                 className="max-w-[600px] w-full mx-auto bg-grey p-8 px-8 rounded-lg"
                 onSubmit={handleSubmit}
@@ -103,7 +103,11 @@ const FormRegister = () => {
                 >
                     Sign Up
                 </button>
-                {error && <div className="error">{error}</div>}
+                {error && (
+                    <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-xl">
+                        {error}
+                    </div>
+                )}
             </form>
         </div>
     );

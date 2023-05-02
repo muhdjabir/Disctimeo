@@ -15,11 +15,12 @@ export const useSignup = () => {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({email, password, role})
         });
-        const json = response.json();
+        const json = await response.json();
 
         if (!response.ok) {
             setIsLoading(false);
             setError(json.error);
+            console.log(error);
         }
         if (response.ok) {
             const response2 = await fetch('/api/users/', {
@@ -40,13 +41,6 @@ export const useSignup = () => {
                 dispatch({type: 'LOGIN', PAYLOAD: json});
                 setIsLoading(false);
             }
-            // save user to local storage
-        //         localStorage.setItem('user', JSON.stringify(json));
-
-        //         //update the auth context
-        //         dispatch({type: 'LOGIN', PAYLOAD: json});
-        //         setIsLoading(false);
-        // 
         }
     }
     return { signup, isLoading, error};

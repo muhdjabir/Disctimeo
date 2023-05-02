@@ -14,7 +14,7 @@ const FormClub = () => {
     };
 
     return (
-        <div className="bg-white flex flex-col justify-center font-montserrat">
+        <div className="bg-white flex flex-col justify-center font-montserrat font-normal">
             <form
                 className="max-w-[600px] w-full mx-auto bg-grey p-8 px-8 rounded-lg"
                 onSubmit={handleSubmit}

@@ -1,18 +1,28 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { useAuthContext } from "../hook/useAuthContext";
+import { useLogout } from "../hook/useLogout";
 
 const logo = require("../assets/logo.png");
 
 const Navbar = () => {
     const [nav, setNav] = useState<boolean>(false);
+    const { user } = useAuthContext();
+    const { logout } = useLogout();
+
+    const handleClick = () => {
+        logout();
+    };
+
+    document.body.style.setProperty("background-color", "#F0F0F0");
 
     const handleNav = () => {
         setNav(!nav);
     };
 
     return (
-        <div className="flex justify-between justify-items-center items-l h-12 text-black flex-row m-10 ">
+        <div className="flex justify-between justify-items-center items-l h-12 text-black flex-row m-10 font-medium">
             <img src={logo} alt="asd"></img>
             <h1 className="w-full text-3xl font-montserrat">
                 <Link to="/">Disctimeo</Link>
@@ -36,20 +46,34 @@ const Navbar = () => {
                     </li>
                 </ul>
             </div>
-            <div className="justify-between items-l flex-row gap-10 hidden md:flex bg-white">
-                <button
-                    type="button"
-                    className="rounded-xl text-xl bg-grey items-center px-5"
-                >
-                    <Link to="/login">Login</Link>
-                </button>
-                <button
-                    type="button"
-                    className="rounded-xl text-xl bg-lime items-center px-5"
-                >
-                    <Link to="/register">Register</Link>
-                </button>
-            </div>
+            {!user && (
+                <div className="justify-between items-l flex-row gap-10 hidden md:flex bg-white ">
+                    <button
+                        type="button"
+                        className="rounded-xl text-xl bg-grey items-center px-5 "
+                    >
+                        <Link to="/login">Login</Link>
+                    </button>
+                    <button
+                        type="button"
+                        className="rounded-xl text-xl bg-lime items-center px-5 "
+                    >
+                        <Link to="/register">Register</Link>
+                    </button>
+                </div>
+            )}
+            {user && (
+                <div>
+                    <span>{user.email}</span>
+                    <button
+                        type="button"
+                        className="rounded-xl text-xl bg-lime items-center px-5 "
+                        onClick={handleClick}
+                    >
+                        <Link to="/">Logout</Link>
+                    </button>
+                </div>
+            )}
             <div onClick={handleNav} className="block md:hidden">
                 {nav ? (
                     <AiOutlineClose size={20} />

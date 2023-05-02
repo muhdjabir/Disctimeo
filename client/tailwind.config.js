@@ -12,6 +12,9 @@ module.exports = {
       'white': '#F0F0F0',
       'buttonblack': "#494B4E",
       'green': '#47924B',
+      'red-100': "#fee2e2",
+      'red-400': "#f87171",
+      'red-700': "#b91c1c",
     },
     extend: {
       fontFamily: {

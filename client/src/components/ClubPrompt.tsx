@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const team = require("../assets/team.jpg");
 
 const ClubPrompt = () => {
@@ -14,7 +16,7 @@ const ClubPrompt = () => {
                     </p>
                     <div className="flex flex-row gap-10">
                         <button className="text-xl font-montserrat text-center text-green underline">
-                            Register your club
+                            <Link to="/clubregister">Register your club</Link>
                         </button>
                     </div>
                 </div>

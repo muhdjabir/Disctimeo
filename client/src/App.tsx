@@ -11,7 +11,7 @@ import ClubRegister from "./pages/ClubRegister";
 
 function App() {
     return (
-        <div className="text-3xl font-bold bg-white">
+        <div className="text-2xl font-bold h-screen bg-white">
             <BrowserRouter>
                 <Navbar />
                 <div className="pages">
