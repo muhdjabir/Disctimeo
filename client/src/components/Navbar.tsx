@@ -41,13 +41,13 @@ const Navbar = () => {
                     type="button"
                     className="rounded-xl text-xl bg-grey items-center px-5"
                 >
-                    Login
+                    <Link to="/login">Login</Link>
                 </button>
                 <button
                     type="button"
                     className="rounded-xl text-xl bg-lime items-center px-5"
                 >
-                    Register
+                    <Link to="/register">Register</Link>
                 </button>
             </div>
             <div onClick={handleNav} className="block md:hidden">
@@ -74,7 +74,7 @@ const Navbar = () => {
                     <Link to="/">Login</Link>
                 </li>
                 <li className="p-4 text-2xl">
-                    <Link to="/">Register</Link>
+                    <Link to="/register">Register</Link>
                 </li>
                 <li className="p-4 text-2xl">
                     <Link to="/feed">Feed</Link>
