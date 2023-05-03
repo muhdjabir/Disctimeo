@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ProfileCard from "../components/ProfileCard";
+import { useAuthContext } from "../hook/useAuthContext";
 
 type Profile = {
     name: string;
@@ -11,16 +12,23 @@ type Profile = {
 
 const Feed = () => {
     const [profile, setProfile] = useState<any>();
+    const { user } = useAuthContext();
 
     useEffect(() => {
         const fetchProfile = async () => {
-            const response = await fetch("/api/users/");
+            const response = await fetch("/api/users/", {
+                headers: {
+                    Authorization: `Bearer ${user.token}`,
+                },
+            });
             const json = await response.json();
             if (response.ok) {
                 setProfile(json);
             }
         };
-        fetchProfile();
+        if (user) {
+            fetchProfile();
+        }
         console.log(JSON.stringify(profile));
     }, []);
 

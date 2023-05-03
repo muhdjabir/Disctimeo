@@ -98,7 +98,7 @@ const FormRegister = () => {
                     />
                 </div>
                 <button
-                    className="w-full my-5 py-2 bg-orange shadow-lg   text-black font-semibold rounded-lg"
+                    className="w-full my-5 py-2 bg-orange shadow-lg   text-black font-semibold rounded-lg hover:outline hover:outline-orange hover:bg-white"
                     disabled={isLoading === true ? true : false}
                 >
                     Sign Up
