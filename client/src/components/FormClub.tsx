@@ -14,7 +14,7 @@ const FormClub = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         clubsignup(
-            email,
+            email.toLowerCase(),
             password,
             "Club",
             name,

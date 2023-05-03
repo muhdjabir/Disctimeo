@@ -33,16 +33,16 @@ const Navbar = () => {
                         <Link to="/feed">Feed</Link>
                     </li>
                     <li className="p-4">
-                        <Link to="/">Trials</Link>
+                        <Link to="/trials">Trials</Link>
                     </li>
                     <li className="p-4">
-                        <Link to="/">Club</Link>
+                        <Link to="/clubs">Club</Link>
                     </li>
                     <li className="p-4">
-                        <Link to="/">Scrimmages</Link>
+                        <Link to="/scrimmages">Scrimmages</Link>
                     </li>
                     <li className="p-4">
-                        <Link to="/">Tournaments</Link>
+                        <Link to="/tournaments">Tournaments</Link>
                     </li>
                 </ul>
             </div>
@@ -63,11 +63,17 @@ const Navbar = () => {
                 </div>
             )}
             {user && (
-                <div>
-                    <span>{user.email}</span>
+                <div className="justify-between items-l flex-row gap-10 hidden md:flex bg-white ">
+                    <h1 className="mt-3">{user.email}</h1>
                     <button
                         type="button"
-                        className="rounded-xl text-xl bg-lime items-center px-5 "
+                        className="rounded-md text-xl whitespace-nowrap text-center px-5 bg-white border-2 border-lime items-center inline-flex "
+                    >
+                        <Link to="/profile">View Profile</Link>
+                    </button>
+                    <button
+                        type="button"
+                        className="rounded-md text-xl bg-lime items-center whitespace-nowrap px-5 "
                         onClick={handleClick}
                     >
                         <Link to="/">Logout</Link>
@@ -90,34 +96,44 @@ const Navbar = () => {
             >
                 <div className="flex">
                     <img src={logo} alt="asd"></img>
-                    <h1 className="w-full text-3xl font-montserrat m-4">
-                        Disctimeo
-                    </h1>
+                    <div className="flex-row ml-5">
+                        <h1 className="w-full text-3xl font-montserrat ml-4">
+                            Disctimeo
+                        </h1>
+                        {user && (
+                            <div>
+                                <p>{user.email}</p>
+                                <button className=" font-montserrat border-2 border-lime px-5">
+                                    <Link to="/profile">View Profile</Link>
+                                </button>{" "}
+                            </div>
+                        )}
+                    </div>
                 </div>
                 {!user && (
                     <div>
                         <li className="p-4 text-2xl">
-                            <Link to="/">Login</Link>
+                            <Link to="/login">Login</Link>
                         </li>
                         <li className="p-4 text-2xl">
                             <Link to="/register">Register</Link>
-                        </li>{" "}
+                        </li>
                     </div>
                 )}
                 <li className="p-4 text-2xl">
                     <Link to="/feed">Feed</Link>
                 </li>
                 <li className="p-4 text-2xl">
-                    <Link to="/">Trials</Link>
+                    <Link to="/trials">Trials</Link>
                 </li>
                 <li className="p-4 text-2xl">
-                    <Link to="/">Club</Link>
+                    <Link to="/clubs">Club</Link>
                 </li>
                 <li className="p-4 text-2xl">
-                    <Link to="/">Scrimmages</Link>
+                    <Link to="/scrimmages">Scrimmages</Link>
                 </li>
                 <li className="p-4 text-2xl">
-                    <Link to="/">Tournaments</Link>
+                    <Link to="/tournaments">Tournaments</Link>
                 </li>
             </ul>
         </div>

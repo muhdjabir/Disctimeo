@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const laptop = require("../assets/laptop.jpg");
 
@@ -19,7 +20,9 @@ const Hero = () => {
                             Join Us
                         </button>
                         <button className="text-xs font-montserrat text-center text-darkgrey underline">
-                            Explore Pickups near you
+                            <Link to="/scrimmages">
+                                Explore Pickups near you
+                            </Link>
                         </button>
                     </div>
                 </div>

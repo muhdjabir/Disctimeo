@@ -1,20 +1,13 @@
 import { useEffect, useState } from "react";
-import ProfileCard from "../components/ProfileCard";
+import Profile from "../components/Profile";
 import { useAuthContext } from "../hook/useAuthContext";
 
-type ProfileObject = {
-    name: string;
-    contact: number;
-    years: string;
-    position: string;
-    level: string;
-    club: string;
-};
-
-const Feed = () => {
+const ProfilePage = () => {
     const [profile, setProfile] = useState<any>();
     const { user } = useAuthContext();
-    const str = "/api/users/";
+    const email = user.email;
+    const str = "/api/users/" + email;
+    console.log(str);
 
     useEffect(() => {
         const fetchProfile = async () => {
@@ -35,16 +28,10 @@ const Feed = () => {
     }, []);
 
     return (
-        <div className="text-center font-montserrat ">
-            <h1 className="text-3xl"> Community</h1>
-            <div className="text-black body-font font-poppins mx-auto grid lg:grid-cols-3">
-                {profile &&
-                    profile.map((prof: ProfileObject) => (
-                        <ProfileCard key={prof.name} profile={prof} />
-                    ))}
-            </div>
+        <div className="text-black body-font font-poppins text-center content-center">
+            {profile && <Profile profile={profile} />}
         </div>
     );
 };
 
-export default Feed;
+export default ProfilePage;

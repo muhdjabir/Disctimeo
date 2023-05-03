@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const logo = require("../assets/group.png");
 
 type ProfileObject = {
@@ -51,7 +53,9 @@ const Profile = ({ profile }: { profile: ProfileObject }) => {
                                         of considerable range.
                                     </p> */}
                                     <button className="bg-lime font-medium p-2 rounded-lg">
-                                        Edit your profile
+                                        <Link to="/profile/edit">
+                                            Edit your profile
+                                        </Link>
                                     </button>
                                 </div>
                             </div>

@@ -24,7 +24,7 @@ const FormRegister = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         await signup(
-            email,
+            email.toLowerCase(),
             password,
             "Player",
             name,
