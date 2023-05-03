@@ -10,7 +10,7 @@ const FormClub = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(email, name, password, description, year, venue);
+        console.log(email, name, password, "Club", description, year, venue);
     };
 
     return (
