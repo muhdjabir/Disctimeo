@@ -22,19 +22,29 @@ function App() {
                         <Route path="/" element={<Home />} />
                         <Route
                             path="/feed"
-                            element={user ? <Feed /> : <Login />}
+                            element={user ? <Feed /> : <Navigate to="/login" />}
                         />
                         <Route
                             path="/register"
-                            element={!user ? <Register /> : <Feed />}
+                            element={
+                                !user ? <Register /> : <Navigate to="/feed" />
+                            }
                         />
                         <Route
                             path="/clubregister"
-                            element={!user ? <ClubRegister /> : <Feed />}
+                            element={
+                                !user ? (
+                                    <ClubRegister />
+                                ) : (
+                                    <Navigate to="/feed" />
+                                )
+                            }
                         />
                         <Route
                             path="/login"
-                            element={!user ? <Login /> : <Feed />}
+                            element={
+                                !user ? <Login /> : <Navigate to="/feed" />
+                            }
                         />
                     </Routes>
                 </div>
