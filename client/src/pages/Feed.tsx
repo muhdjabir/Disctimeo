@@ -13,10 +13,13 @@ type Profile = {
 const Feed = () => {
     const [profile, setProfile] = useState<any>();
     const { user } = useAuthContext();
+    const email = user.email;
+    const str = "/api/users/" + email;
+    console.log(str);
 
     useEffect(() => {
         const fetchProfile = async () => {
-            const response = await fetch("/api/users/", {
+            const response = await fetch(str, {
                 headers: {
                     Authorization: `Bearer ${user.token}`,
                 },
@@ -36,10 +39,13 @@ const Feed = () => {
         <div className="text-lime body-font font-poppins text-center content-center">
             <h3> Feed Page </h3>
             <div className="text-black font-poppins text-xl">
-                {profile &&
+                {profile && (
+                    <ProfileCard key={profile.name} profile={profile} />
+                )}
+                {/* {profile &&
                     profile.map((prof: Profile) => (
                         <ProfileCard key={prof.name} profile={prof} />
-                    ))}
+                    ))} */}
             </div>
         </div>
     );

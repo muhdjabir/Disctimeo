@@ -10,7 +10,7 @@ const FormRegister = () => {
     const [position, setPosition] = useState<String>("");
     const [level, setLevel] = useState<String>("");
     const [contact, setContact] = useState<String>("");
-    const { signup, error, isLoading } = useSignup();
+    const { signup, error, success } = useSignup();
 
     const role = ["Handler", "Cutter", "Hybrid"];
     const years = [
@@ -32,6 +32,12 @@ const FormRegister = () => {
             position,
             year,
             level
+        );
+    };
+
+    const checkFilled = () => {
+        return (
+            email && password && name && contact && position && year && level
         );
     };
 
@@ -98,14 +104,20 @@ const FormRegister = () => {
                     />
                 </div>
                 <button
-                    className="w-full my-5 py-2 bg-orange shadow-lg   text-black font-semibold rounded-lg hover:outline hover:outline-orange hover:bg-white"
-                    disabled={isLoading === true ? true : false}
+                    className={`w-full my-5 py-2 bg-orange shadow-lg   text-black font-semibold rounded-lg 
+                    hover:outline hover:outline-orange hover:bg-white `}
+                    disabled={checkFilled() ? false : true}
                 >
                     Sign Up
                 </button>
                 {error && (
                     <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative text-xl">
                         {error}
+                    </div>
+                )}
+                {success && (
+                    <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative text-xl">
+                        {success}
                     </div>
                 )}
             </form>

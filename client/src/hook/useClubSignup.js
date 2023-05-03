@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 
-export const useSignup = () => {
+export const useClubSignup = () => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(null);
     const [success, setSuccess] = useState(null);
     const {dispatch} = useAuthContext();
 
-    const signup = async (email, password, role, name, contact, position, years, level) => {
+    const clubsignup = async (email, password, role, name, contact, description, year, venue) => {
         setIsLoading(true);
         setError(null);
 
@@ -24,10 +24,10 @@ export const useSignup = () => {
             console.log(error);
         }
         if (response.ok) {
-            const response2 = await fetch('/api/users/', {
+            const response2 = await fetch('/api/clubs/', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({name, contact, years, position, level, email})
+                body: JSON.stringify({name, contact, year, description, venue, email})
             });
             const json2 = response2.json();
             if (!response2.ok) {
@@ -45,5 +45,5 @@ export const useSignup = () => {
             }
         }
     }
-    return { signup, isLoading, error, success};
+    return { clubsignup, isLoading, error, success};
 }
