@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import ProfileCard from "../components/ProfileCard";
+import Profile from "../components/Profile";
 import { useAuthContext } from "../hook/useAuthContext";
 
-type Profile = {
+type ProfileObject = {
     name: string;
     contact: number;
     years: string;
     position: string;
     level: string;
+    club: string;
 };
 
 const Feed = () => {
@@ -36,17 +38,12 @@ const Feed = () => {
     }, []);
 
     return (
-        <div className="text-lime body-font font-poppins text-center content-center">
-            <h3> Feed Page </h3>
-            <div className="text-black font-poppins text-xl">
-                {profile && (
-                    <ProfileCard key={profile.name} profile={profile} />
-                )}
-                {/* {profile &&
+        <div className="text-black body-font font-poppins text-center content-center">
+            {profile && <Profile profile={profile} />}
+            {/* {profile &&
                     profile.map((prof: Profile) => (
                         <ProfileCard key={prof.name} profile={prof} />
                     ))} */}
-            </div>
         </div>
     );
 };

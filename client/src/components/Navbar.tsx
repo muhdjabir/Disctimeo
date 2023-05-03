@@ -94,12 +94,16 @@ const Navbar = () => {
                         Disctimeo
                     </h1>
                 </div>
-                <li className="p-4 text-2xl">
-                    <Link to="/">Login</Link>
-                </li>
-                <li className="p-4 text-2xl">
-                    <Link to="/register">Register</Link>
-                </li>
+                {!user && (
+                    <div>
+                        <li className="p-4 text-2xl">
+                            <Link to="/">Login</Link>
+                        </li>
+                        <li className="p-4 text-2xl">
+                            <Link to="/register">Register</Link>
+                        </li>{" "}
+                    </div>
+                )}
                 <li className="p-4 text-2xl">
                     <Link to="/feed">Feed</Link>
                 </li>

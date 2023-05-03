@@ -18,6 +18,7 @@ module.exports = {
       'green-100': "#ecfccb",
       'green-400': '#a3e635',
       'green-700': "#4d7c0f",
+      'slate': "#f8fafc",
     },
     extend: {
       fontFamily: {
