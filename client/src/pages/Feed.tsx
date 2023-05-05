@@ -35,7 +35,7 @@ const Feed = () => {
     }, []);
 
     return (
-        <div className="text-center font-montserrat ">
+        <div className="text-center font-montserrat">
             <h1 className="text-3xl">Community</h1>
             <div className="text-black body-font font-poppins mx-auto grid lg:grid-cols-3">
                 {profile &&

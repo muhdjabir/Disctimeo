@@ -27,7 +27,6 @@ type ProfileObject = {
 const ClubProfile = ({ profile }: { profile: ClubProfileObject }) => {
     const { user } = useAuthContext();
     const [prof, setProf] = useState<any>();
-    const member: ProfileObject[] = [];
     const str = "/api/users/";
 
     useEffect(() => {
