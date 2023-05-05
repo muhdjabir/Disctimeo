@@ -12,10 +12,12 @@ const router = express.Router();
 //Post a new club
 router.post('/', createClub);
 
-// router.use(requireAuth);
+
 
 // GET all clubs
 router.get('/', getClubs);
+
+router.use(requireAuth);
 
 //Get a single club
 router.get('/:id', getClub);

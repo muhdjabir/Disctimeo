@@ -11,7 +11,7 @@ type ProfileObject = {
     club: string;
 };
 
-const Profile = ({ profile }: { profile: ProfileObject }) => {
+const PlayerProfile = ({ profile }: { profile: ProfileObject }) => {
     return (
         <div className="font-montserrat rounded-2xl max-w-[80%] mx-auto bg-gradient-to-r bg-no-repeat bg-[length:100%_25%] from-yellow to-lime">
             <div className="w-full lg:w-2/5 px-4 mx-auto p-5">
@@ -67,4 +67,4 @@ const Profile = ({ profile }: { profile: ProfileObject }) => {
     );
 };
 
-export default Profile;
+export default PlayerProfile;

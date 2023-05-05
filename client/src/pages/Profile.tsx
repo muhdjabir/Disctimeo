@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-import Profile from "../components/Profile";
 import { useAuthContext } from "../hook/useAuthContext";
+import PlayerProfile from "../components/PlayerProfile";
+import ClubProfile from "../components/ClubProfile";
 
 const ProfilePage = () => {
     const [profile, setProfile] = useState<any>();
     const { user } = useAuthContext();
     const email = user.email;
-    const str = "/api/users/" + email;
+    const role = user.role;
+    const str = (role === "Player" ? "/api/users/" : "/api/clubs/") + email;
     console.log(str);
 
     useEffect(() => {
@@ -30,7 +32,10 @@ const ProfilePage = () => {
     return (
         <div className="text-black body-font font-poppins text-center ">
             <h1 className="m-5">Your Profile</h1>
-            {profile && <Profile profile={profile} />}
+            {role === "Club" && profile && <ClubProfile profile={profile} />}
+            {role === "Player" && profile && (
+                <PlayerProfile profile={profile} />
+            )}
         </div>
     );
 };

@@ -12,11 +12,12 @@ const loginUser = async (req, res) => {
 
     try {
         const auth = await Auth.login(email, password);
+        const {role} = await Auth.findOne({email: email});
 
         // Create a token
         const token = createToken(auth._id);
 
-        res.status(200).json({email, token});
+        res.status(200).json({email, role, token});
     } catch (error) {
         res.status(400).json({error: error.message});
     }
