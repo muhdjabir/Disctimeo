@@ -13,13 +13,13 @@ type ProfileObject = {
 
 const Profile = ({ profile }: { profile: ProfileObject }) => {
     return (
-        <div className="font-montserrat ">
-            <div className="w-full lg:w-8/12 px-4 mx-auto ">
-                <div className=" flex flex-col min-w-0 break-words bg-slate w-full mb-6 shadow-xl rounded-lg mt-16">
+        <div className="font-montserrat rounded-2xl max-w-[80%] mx-auto bg-gradient-to-r bg-no-repeat bg-[length:100%_25%] from-yellow to-lime">
+            <div className="w-full lg:w-2/5 px-4 mx-auto p-5">
+                <div className=" flex flex-col min-w-0 break-words bg-slate w-full mb-6 shadow-2xl rounded-2xl mt-16">
                     <div className="px-6">
                         <div className="flex flex-wrap justify-center">
                             <div className="w-full px-4 flex justify-center">
-                                <div className="">
+                                <div className="m-5">
                                     <img src={logo} alt="" />
                                 </div>
                             </div>
@@ -52,7 +52,7 @@ const Profile = ({ profile }: { profile: ProfileObject }) => {
                                         with a solid groove structure. An artist
                                         of considerable range.
                                     </p> */}
-                                    <button className="bg-lime font-medium p-2 rounded-lg">
+                                    <button className="bg-lime font-medium p-2 rounded-lg mb-10">
                                         <Link to="/profile/edit">
                                             Edit your profile
                                         </Link>

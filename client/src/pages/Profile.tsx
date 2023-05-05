@@ -28,7 +28,8 @@ const ProfilePage = () => {
     }, []);
 
     return (
-        <div className="text-black body-font font-poppins text-center content-center">
+        <div className="text-black body-font font-poppins text-center ">
+            <h1 className="m-5">Your Profile</h1>
             {profile && <Profile profile={profile} />}
         </div>
     );

@@ -58,10 +58,6 @@ const deleteUser = async (req, res) => {
 const updateUser = async (req, res) => {
     const { id } = req.params;
 
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({error: "No such user"});
-    }
-
     const user = await User.findOneAndUpdate({email: id}, {
         ...req.body
     })
