@@ -12,10 +12,12 @@ const router = express.Router();
 //Post a new user
 router.post('/', createUser);
 
-router.use(requireAuth);
 
 // GET all users
 router.get('/', getUsers);
+
+router.use(requireAuth);
+
 
 //Get a single user
 router.get('/:id', getUser);

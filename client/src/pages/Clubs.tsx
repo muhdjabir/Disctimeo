@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useAuthContext } from "../hook/useAuthContext";
 import ClubCard from "../components/ClubCard";
 
 const header = require("../assets/clubheader.png");
@@ -16,24 +15,19 @@ type ClubProfileObject = {
 
 const Clubs = () => {
     const [profile, setProfile] = useState<any>();
-    const { user } = useAuthContext();
     const str = "/api/clubs";
 
     useEffect(() => {
         const fetchProfile = async () => {
             const response = await fetch(str, {
-                headers: {
-                    Authorization: `Bearer ${user.token}`,
-                },
+                headers: { "Content-Type": "application/json" },
             });
             const json = await response.json();
             if (response.ok) {
                 setProfile(json);
             }
         };
-        if (user) {
-            fetchProfile();
-        }
+        fetchProfile();
         console.log(JSON.stringify(profile));
     }, []);
 

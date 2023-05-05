@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const userRoutes = require('./routes/users');
 const authRoutes = require('./routes/auth');
 const clubRoutes = require('./routes/club');
+const scrimRoutes = require('./routes/scrim');
 
 // express app
 const app = express();
@@ -21,6 +22,7 @@ app.use((req, res, next) => {
 app.use('/api/users', userRoutes); // Basically allows the use of routes from userRoutes
 app.use('/api/auth', authRoutes);
 app.use('/api/clubs', clubRoutes);
+app.use('/api/scrims', scrimRoutes);
 
 //cConnect to DB
 mongoose.connect(process.env.MONG_URI)

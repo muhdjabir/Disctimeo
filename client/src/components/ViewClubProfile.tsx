@@ -33,19 +33,14 @@ const ViewClubProfile = ({ profile }: { profile: ClubProfileObject }) => {
     useEffect(() => {
         const fetchProfile = async () => {
             const response = await fetch(str, {
-                headers: {
-                    Authorization: `Bearer ${user.token}`,
-                },
+                headers: { "Content-Type": "application/json" },
             });
             const json = await response.json();
             if (response.ok) {
                 setProf(json);
             }
         };
-        if (user) {
-            fetchProfile();
-        }
-        console.log(JSON.stringify(profile));
+        fetchProfile();
     }, []);
 
     return (
