@@ -29,7 +29,7 @@ const Clubs = () => {
         };
         fetchProfile();
         console.log(JSON.stringify(profile));
-    }, []);
+    }, [profile]);
 
     return (
         <div className="flex flex-col text-center font-montserrat justify-center">

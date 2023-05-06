@@ -39,7 +39,7 @@ const Navbar = () => {
                         <Link to="/clubs">Club</Link>
                     </li>
                     <li className="p-4">
-                        <Link to="/scrimmages">Scrimmages</Link>
+                        <Link to="/scrimmages">Pickups</Link>
                     </li>
                     <li className="p-4">
                         <Link to="/tournaments">Tournaments</Link>
@@ -130,7 +130,7 @@ const Navbar = () => {
                     <Link to="/clubs">Club</Link>
                 </li>
                 <li className="p-4 text-2xl">
-                    <Link to="/scrimmages">Scrimmages</Link>
+                    <Link to="/scrimmages">Pickups</Link>
                 </li>
                 <li className="p-4 text-2xl">
                     <Link to="/tournaments">Tournaments</Link>
