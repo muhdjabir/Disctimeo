@@ -16,7 +16,7 @@ const getScrim = async (req, res) => {
     //     return res.status(404).json({error: "No such scrim"});
     // }
 
-    const scrim = await Scrim.findOne({email: id});
+    const scrim = await Scrim.findById(id);
 
     if (!scrim) {
         return res.status(404).json({error: 'No such scrim'});
@@ -44,7 +44,7 @@ const deleteScrim = async (req, res) => {
     //     return res.status(404).json({error: "No such scrim"});
     // }
 
-    const scrim = await Scrim.findOneAndDelete({ email: id});
+    const scrim = await Scrim.findByIdAndDelete(id);
 
     if (!scrim) {
         return res.status(400).json({ error: 'No such scrim'});
