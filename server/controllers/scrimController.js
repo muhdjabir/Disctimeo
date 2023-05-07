@@ -26,10 +26,10 @@ const getScrim = async (req, res) => {
 
 // Create a new scrim
 const createScrim = async (req, res) => {
-    const {name, time, date, description, venue, email} = req.body;
+    const {name, time, date,members, description, venue, email} = req.body;
     // Add doc to db
     try {
-        const scrim = await Scrim.create({name, time, date, description, members: [], venue, email});
+        const scrim = await Scrim.create({name, time, date, description, members, venue, email});
         res.status(200).json(scrim);
     } catch(error) {
         res.status(400).json({error: error.message});
@@ -52,9 +52,26 @@ const deleteScrim = async (req, res) => {
     res.status(200).json(scrim);
 }
 
+const updateScrim = async (req, res) => {
+    const { id } = req.params;
+
+    // if (!mongoose.Types.ObjectId.isValid(id)) {
+    //     return res.status(404).json({error: "No such scrim"});
+    // }
+
+    const scrim = await Scrim.findByIdAndUpdate(id, {
+        ...req.body
+    })
+    if (!scrim) {
+        return res.status(400).json({ error: 'No such scrim'});
+    }
+    res.status(200).json(scrim);
+}
+
 module.exports = {
     getScrims,
     getScrim,
     createScrim,
     deleteScrim,
+    updateScrim,
 }

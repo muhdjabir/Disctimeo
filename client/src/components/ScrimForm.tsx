@@ -9,6 +9,7 @@ const ScrimForm = () => {
     const { user } = useAuthContext();
     const email = user.email;
     const members = [email];
+    console.log(members);
 
     const [venue, setVenue] = useState("");
     const [time, setTime] = useState("");

@@ -3,7 +3,8 @@ const {
     getScrims,
     getScrim, 
     createScrim,
-    deleteScrim
+    deleteScrim,
+    updateScrim
 } = require('../controllers/scrimController')
 const requireAuth = require('../middleware/requireAuth');
 
@@ -28,6 +29,6 @@ router.get('/:id', getScrim);
 router.delete('/:id', deleteScrim);
 
 // //Update a Scrim
-// router.patch('/:id', updateScrim);
+router.patch('/:id', updateScrim);
 
 module.exports = router;

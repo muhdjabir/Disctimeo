@@ -16,6 +16,16 @@ export const scrimsReducer = (state, action) => {
         return { 
           scrims: state.scrims.filter(w => w._id !== action.payload._id) 
         }
+      case 'JOIN_SCRIM':
+        const joinState = state.scrims.filter(w => w._id !== action.payload._id);
+        return { 
+          scrims: [action.payload, ...joinState]
+        }
+      case 'LEAVE_SCRIM':
+        const leaveState = state.scrims.filter(w => w._id !== action.payload._id);
+        return { 
+          scrims: [action.payload, ...leaveState]
+        }
       default:
         return state
     }
