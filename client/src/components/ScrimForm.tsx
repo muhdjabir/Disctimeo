@@ -21,8 +21,6 @@ const ScrimForm = () => {
 
         const Scrim = { venue, time, members, date, description, email };
 
-        console.log(JSON.stringify(Scrim));
-
         const response = await fetch("/api/scrims", {
             method: "POST",
             body: JSON.stringify(Scrim),

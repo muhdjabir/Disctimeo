@@ -1,3 +1,5 @@
+import { useAuthContext } from "../hook/useAuthContext";
+import { useScrimsContext } from "../hook/useScrimsContext";
 import { Link } from "react-router-dom";
 
 const logo = require("../assets/logo.png");
@@ -15,7 +17,21 @@ type ScrimObject = {
 
 const ScrimCard = ({ scrim, email }: { scrim: ScrimObject; email: string }) => {
     const currentDate = new Date(scrim.date);
-    console.log(currentDate.toDateString());
+    const { dispatch } = useScrimsContext();
+    const { user } = useAuthContext();
+
+    const handleClick = async () => {
+        const response = await fetch("/api/scrims/" + scrim._id, {
+            method: "DELETE",
+            headers: {
+                Authorization: `Bearer ${user.token}`,
+            },
+        });
+        const json = await response.json();
+        if (response.ok) {
+            dispatch({ type: "DELETE_SCRIM", payload: json });
+        }
+    };
 
     return (
         <div className="items-start justify-center text-left bg-slate shadow-lg m-5 p-5 font-montserrat font-semibold">
@@ -38,9 +54,11 @@ const ScrimCard = ({ scrim, email }: { scrim: ScrimObject; email: string }) => {
                         View More {/* </Link> */}
                     </button>
                     {scrim.email === email && (
-                        <button className="rounded-md border-2 border-lime whitespace-nowrap px-5 font-medium font-montserrat">
-                            {/* <Link to="/clubs/view" state={scrim}> */}
-                            Delete {/* </Link> */}
+                        <button
+                            className="rounded-md border-2 border-lime whitespace-nowrap px-5 font-medium font-montserrat"
+                            onClick={handleClick}
+                        >
+                            Delete
                         </button>
                     )}
                 </div>
