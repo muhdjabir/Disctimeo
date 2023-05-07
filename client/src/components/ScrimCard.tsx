@@ -59,7 +59,7 @@ const ScrimCard = ({ scrim, email }: { scrim: ScrimObject; email: string }) => {
 
     const handleLeave = async () => {
         const newMembers = scrim.members.filter(
-            (member) => member != user.email
+            (member) => member !== user.email
         );
         console.log(newMembers);
         const details = { members: newMembers };
