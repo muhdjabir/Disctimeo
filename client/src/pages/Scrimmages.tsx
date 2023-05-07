@@ -1,14 +1,16 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useScrimsContext } from "../hook/useScrimsContext";
 import { useAuthContext } from "../hook/useAuthContext";
+import { Link } from "react-router-dom";
 import ScrimCard from "../components/ScrimCard";
+import ScrimForm from "../components/ScrimForm";
 
 const header = require("../assets/scrimheader.png");
 
 type ScrimObject = {
     _id: string;
     name: string;
-    date: string;
+    date: Date;
     time: string;
     description: string;
     venue: string;
@@ -36,10 +38,19 @@ const Scrimmages = () => {
     }, [dispatch]);
 
     return (
-        <div className="flex flex-col text-center font-montserrat justify-center">
+        <div className="flex flex-col text-center font-montserrat justify-center ">
             <div className=" mx-auto">
                 <img src={header} alt="" />
                 <div className="text-black body-font font-poppins mx-auto">
+                    {user && <ScrimForm />}
+                    {!user && (
+                        <div className="items-start justify-center text-center bg-grey shadow-lg m-5 p-5 font-montserrat font-semibold">
+                            <Link to="/login">
+                                Log in or Register to add or join a pickup
+                                session
+                            </Link>
+                        </div>
+                    )}
                     {!scrims && (
                         <h1 className="col-span-3">Fetching results</h1>
                     )}

@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 // GET all scrims
 const getScrims = async (req, res) => {
-    const scrims = await Scrim.find({}).sort({createdAt: -1});
+    const scrims = await Scrim.find({}).sort({date: -1});
     res.status(200).json(scrims);
 }
 

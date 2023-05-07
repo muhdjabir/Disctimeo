@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const scrimSchema = new Schema({
     name: {
         type: String,
-        required: true
+        required: false
     },
     time: {
         type: String,
@@ -16,7 +16,7 @@ const scrimSchema = new Schema({
         required: false
     },
     date: {
-        type: String,
+        type: Date,
         required: true
     },
     description: {
