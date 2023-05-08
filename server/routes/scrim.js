@@ -17,7 +17,7 @@ router.post('/', createScrim);
 // GET all Scrims
 router.get('/', getScrims);
 
-// router.use(requireAuth);
+router.use(requireAuth);
 
 
 //Get a single Scrim

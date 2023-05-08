@@ -1,6 +1,6 @@
 import { useAuthContext } from "../hook/useAuthContext";
 import { useScrimsContext } from "../hook/useScrimsContext";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const logo = require("../assets/logo.png");
 
@@ -99,10 +99,13 @@ const ScrimCard = ({ scrim, email }: { scrim: ScrimObject; email: string }) => {
                     <p className="font-medium">
                         Number of participants: {scrim.members.length}
                     </p>
-                    <button className="rounded-md border-2 border-lime whitespace-nowrap px-5 mr-3 font-medium font-montserrat">
-                        {/* <Link to="/clubs/view" state={scrim}> */}
-                        View More {/* </Link> */}
-                    </button>
+                    {user && (
+                        <button className="rounded-md border-2 border-lime whitespace-nowrap px-5 mr-3 font-medium font-montserrat">
+                            {/* <Link to="/clubs/view" state={scrim}> */}
+                            View More {/* </Link> */}
+                        </button>
+                    )}
+
                     {scrim.email === email && (
                         <button
                             className="rounded-md border-2 border-lime whitespace-nowrap px-5 font-medium font-montserrat"
@@ -111,7 +114,8 @@ const ScrimCard = ({ scrim, email }: { scrim: ScrimObject; email: string }) => {
                             Delete
                         </button>
                     )}
-                    {scrim.email !== email &&
+                    {user &&
+                        scrim.email !== email &&
                         !scrim.members.includes(email) && (
                             <button
                                 className="rounded-md border-2 border-lime whitespace-nowrap px-5 font-medium font-montserrat"
@@ -120,14 +124,16 @@ const ScrimCard = ({ scrim, email }: { scrim: ScrimObject; email: string }) => {
                                 Join
                             </button>
                         )}
-                    {scrim.email !== email && scrim.members.includes(email) && (
-                        <button
-                            className="rounded-md border-2 border-lime whitespace-nowrap px-5 font-medium font-montserrat"
-                            onClick={handleLeave}
-                        >
-                            Leave
-                        </button>
-                    )}
+                    {user &&
+                        scrim.email !== email &&
+                        scrim.members.includes(email) && (
+                            <button
+                                className="rounded-md border-2 border-lime whitespace-nowrap px-5 font-medium font-montserrat"
+                                onClick={handleLeave}
+                            >
+                                Leave
+                            </button>
+                        )}
                 </div>
             </div>
             <div className="font-normal grid mx-auto grid-cols-2">
