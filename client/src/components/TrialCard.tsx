@@ -14,6 +14,7 @@ type TrialObject = {
     venue: string;
     registration: string;
     members: string[];
+    information: string;
     email: string;
 };
 
@@ -93,15 +94,18 @@ const TrialCard = ({ trial, email }: { trial: TrialObject; email: string }) => {
                         <img src={logo} alt="" />{" "}
                     </div>
                     <div className="flex-auto w-64">
-                        <h4>{trial.venue}</h4>
+                        <h4>
+                            {trial.club} {trial.description}
+                        </h4>
                         <h4 className="font-medium">Timing: {trial.time}</h4>
+                        <h4 className="font-medium">Venue: {trial.venue}</h4>
                     </div>
                 </div>
                 <div className="ml-auto">
                     <p className="font-medium">
                         Number of participants: {trial.members.length}
                     </p>
-                    {user && (
+                    {user.email === trial.email && (
                         <button className="rounded-md border-2 border-lime whitespace-nowrap px-5 mr-3 font-medium font-montserrat">
                             {/* <Link to="/clubs/view" state={trial}> */}
                             View More {/* </Link> */}
@@ -117,6 +121,7 @@ const TrialCard = ({ trial, email }: { trial: TrialObject; email: string }) => {
                         </button>
                     )}
                     {user &&
+                        user.role === "Player" &&
                         trial.email !== email &&
                         !trial.members.includes(email) && (
                             <button
@@ -126,7 +131,7 @@ const TrialCard = ({ trial, email }: { trial: TrialObject; email: string }) => {
                                 Join
                             </button>
                         )}
-                    {user &&
+                    {user.role === "Player" &&
                         trial.email !== email &&
                         trial.members.includes(email) && (
                             <button

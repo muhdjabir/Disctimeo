@@ -26,7 +26,7 @@ const getTrial = async (req, res) => {
 
 // Create a new trial
 const createTrial = async (req, res) => {
-    const {name, club, time, date,members, description, registration, venue, email} = req.body;
+    const {name, club, time, date,members, description, registration, venue,  email} = req.body;
     // Add doc to db
     try {
         const trial = await Trial.create({name, club, time, date, description, members, registration, venue, email});
