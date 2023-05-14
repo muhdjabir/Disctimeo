@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useAuthContext } from "./hook/useAuthContext";
+import { Helmet, HelmetProvider, HelmetData } from "react-helmet-async";
 
 // Pages & Components
 import Home from "./pages/Home";
@@ -18,11 +19,16 @@ import Tournaments from "./pages/Tournaments";
 import ViewClub from "./pages/ViewClub";
 import ViewTrialees from "./pages/ViewTrialees";
 
+const helmetData = new HelmetData({});
+
 function App() {
     const { user } = useAuthContext();
 
     return (
         <div className="text-2xl font-bold h-screen bg-white">
+            <Helmet helmetData={helmetData}>
+                <title>Disctimeo</title>
+            </Helmet>
             <BrowserRouter>
                 <Navbar />
                 <div className="pages">
