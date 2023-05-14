@@ -8,7 +8,10 @@ const ProfilePage = () => {
     const { user } = useAuthContext();
     const email = user.email;
     const role = user.role;
-    const str = (role === "Player" ? "/api/users/" : "/api/clubs/") + email;
+    const str =
+        process.env.REACT_APP_DB_URL +
+        (role === "Player" ? "/api/users/" : "/api/clubs/") +
+        email;
     console.log(str);
 
     useEffect(() => {

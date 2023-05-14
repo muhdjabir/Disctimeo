@@ -11,12 +11,15 @@ const ScrimCard = ({ scrim, email }: { scrim: ScrimObject; email: string }) => {
     const { user } = useAuthContext();
 
     const handleDelete = async () => {
-        const response = await fetch("/api/scrims/" + scrim._id, {
-            method: "DELETE",
-            headers: {
-                Authorization: `Bearer ${user.token}`,
-            },
-        });
+        const response = await fetch(
+            `${process.env.REACT_APP_DB_URL}/api/scrims/` + scrim._id,
+            {
+                method: "DELETE",
+                headers: {
+                    Authorization: `Bearer ${user.token}`,
+                },
+            }
+        );
         const json = await response.json();
         if (response.ok) {
             dispatch({ type: "DELETE_SCRIM", payload: json });
@@ -27,21 +30,27 @@ const ScrimCard = ({ scrim, email }: { scrim: ScrimObject; email: string }) => {
         scrim.members.push(user.email);
         console.log(scrim.members);
         const details = { members: scrim.members };
-        const response = await fetch("/api/scrims/" + scrim._id, {
-            method: "PATCH",
-            body: JSON.stringify(details),
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${user.token}`,
-            },
-        });
-        const json = await response.json();
-        if (response.ok) {
-            const response1 = await fetch("/api/scrims/" + scrim._id, {
+        const response = await fetch(
+            `${process.env.REACT_APP_DB_URL}/api/scrims/` + scrim._id,
+            {
+                method: "PATCH",
+                body: JSON.stringify(details),
                 headers: {
+                    "Content-Type": "application/json",
                     Authorization: `Bearer ${user.token}`,
                 },
-            });
+            }
+        );
+        const json = await response.json();
+        if (response.ok) {
+            const response1 = await fetch(
+                `${process.env.REACT_APP_DB_URL}/api/scrims/` + scrim._id,
+                {
+                    headers: {
+                        Authorization: `Bearer ${user.token}`,
+                    },
+                }
+            );
             const json2 = await response1.json();
             dispatch({ type: "JOIN_SCRIM", payload: json2 });
         }
@@ -53,21 +62,27 @@ const ScrimCard = ({ scrim, email }: { scrim: ScrimObject; email: string }) => {
         );
         console.log(newMembers);
         const details = { members: newMembers };
-        const response = await fetch("/api/scrims/" + scrim._id, {
-            method: "PATCH",
-            body: JSON.stringify(details),
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${user.token}`,
-            },
-        });
-        const json = await response.json();
-        if (response.ok) {
-            const response1 = await fetch("/api/scrims/" + scrim._id, {
+        const response = await fetch(
+            `${process.env.REACT_APP_DB_URL}/api/scrims/` + scrim._id,
+            {
+                method: "PATCH",
+                body: JSON.stringify(details),
                 headers: {
+                    "Content-Type": "application/json",
                     Authorization: `Bearer ${user.token}`,
                 },
-            });
+            }
+        );
+        const json = await response.json();
+        if (response.ok) {
+            const response1 = await fetch(
+                `${process.env.REACT_APP_DB_URL}/api/scrims/` + scrim._id,
+                {
+                    headers: {
+                        Authorization: `Bearer ${user.token}`,
+                    },
+                }
+            );
             const json2 = await response1.json();
             dispatch({ type: "LEAVE_SCRIM", payload: json2 });
         }

@@ -8,7 +8,7 @@ const header = require("../assets/feedheader.png");
 const Feed = () => {
     const [profile, setProfile] = useState<any>();
     const { user } = useAuthContext();
-    const str = "/api/users/";
+    const str = `${process.env.REACT_APP_DB_URL}/api/users/`;
 
     useEffect(() => {
         const fetchProfile = async () => {

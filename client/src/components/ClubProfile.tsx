@@ -9,7 +9,7 @@ const logo = require("../assets/rascals.jpg");
 const ClubProfile = ({ profile }: { profile: ClubProfileObject }) => {
     const { user } = useAuthContext();
     const [prof, setProf] = useState<any>();
-    const str = "/api/users/";
+    const str = `${process.env.REACT_APP_DB_URL}/api/users/`;
 
     useEffect(() => {
         const fetchProfile = async () => {

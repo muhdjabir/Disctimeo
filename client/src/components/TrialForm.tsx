@@ -20,11 +20,14 @@ const TrialForm = () => {
 
     useEffect(() => {
         const fetchProfile = async () => {
-            const response = await fetch("/api/clubs/" + email, {
-                headers: {
-                    Authorization: `Bearer ${user.token}`,
-                },
-            });
+            const response = await fetch(
+                `${process.env.REACT_APP_DB_URL}/api/clubs/` + email,
+                {
+                    headers: {
+                        Authorization: `Bearer ${user.token}`,
+                    },
+                }
+            );
             const json = await response.json();
             if (response.ok) {
                 setClub(json.name);
@@ -49,14 +52,17 @@ const TrialForm = () => {
             email,
         };
 
-        const response = await fetch("/api/trials", {
-            method: "POST",
-            body: JSON.stringify(Trial),
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${user.token}`,
-            },
-        });
+        const response = await fetch(
+            `${process.env.REACT_APP_DB_URL}/api/trials`,
+            {
+                method: "POST",
+                body: JSON.stringify(Trial),
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${user.token}`,
+                },
+            }
+        );
         const json = await response.json();
 
         if (!response.ok) {

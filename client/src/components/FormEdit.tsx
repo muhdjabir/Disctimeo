@@ -13,7 +13,7 @@ const FormEdit = () => {
     const [error, setError] = useState<string>("");
     const [success, setSuccess] = useState<string>("");
     const email = user.email;
-    const str = "/api/users/" + email;
+    const str = `${process.env.REACT_APP_DB_URL}/api/users/` + email;
 
     const role = ["Handler", "Cutter", "Hybrid"];
     const year = [

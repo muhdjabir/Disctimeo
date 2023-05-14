@@ -7,7 +7,7 @@ const logo = require("../assets/rascals.jpg");
 const ViewTrialeeProfile = ({ trialees }: { trialees: TrialObject }) => {
     const [prof, setProf] = useState<any>();
     const date = new Date(trialees.date);
-    const str = "/api/users/";
+    const str = `${process.env.REACT_APP_DB_URL}/api/users/`;
 
     useEffect(() => {
         const fetchProfile = async () => {

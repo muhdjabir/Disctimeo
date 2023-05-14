@@ -9,7 +9,6 @@ const ScrimForm = () => {
     const { user } = useAuthContext();
     const email = user.email;
     const members = [email];
-    console.log(members);
 
     const [venue, setVenue] = useState("");
     const [time, setTime] = useState("");
@@ -22,14 +21,17 @@ const ScrimForm = () => {
 
         const Scrim = { venue, time, members, date, description, email };
 
-        const response = await fetch("/api/scrims", {
-            method: "POST",
-            body: JSON.stringify(Scrim),
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${user.token}`,
-            },
-        });
+        const response = await fetch(
+            `${process.env.REACT_APP_DB_URL}/api/scrims`,
+            {
+                method: "POST",
+                body: JSON.stringify(Scrim),
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${user.token}`,
+                },
+            }
+        );
         const json = await response.json();
 
         if (!response.ok) {

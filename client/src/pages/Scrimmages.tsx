@@ -16,7 +16,9 @@ const Scrimmages = () => {
 
     useEffect(() => {
         const fetchScrims = async () => {
-            const response = await fetch("/api/scrims/");
+            const response = await fetch(
+                `${process.env.REACT_APP_DB_URL}/api/scrims/`
+            );
             const json = await response.json();
 
             if (response.ok) {

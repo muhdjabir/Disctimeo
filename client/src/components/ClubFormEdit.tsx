@@ -12,7 +12,7 @@ const ClubFormEdit = () => {
     const [error, setError] = useState<string>("");
     const [success, setSuccess] = useState<string>("");
     const email = user.email;
-    const str = "/api/clubs/" + email;
+    const str = `${process.env.REACT_APP_DB_URL}/api/clubs/` + email;
 
     const checkFilled = () => {
         return name && contact && description && year && venue;

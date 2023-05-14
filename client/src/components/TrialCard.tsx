@@ -11,12 +11,15 @@ const TrialCard = ({ trial }: { trial: TrialObject }) => {
     const { user } = useAuthContext();
 
     const handleDelete = async () => {
-        const response = await fetch("/api/trials/" + trial._id, {
-            method: "DELETE",
-            headers: {
-                Authorization: `Bearer ${user.token}`,
-            },
-        });
+        const response = await fetch(
+            `${process.env.REACT_APP_DB_URL}/api/trials/` + trial._id,
+            {
+                method: "DELETE",
+                headers: {
+                    Authorization: `Bearer ${user.token}`,
+                },
+            }
+        );
         const json = await response.json();
         if (response.ok) {
             dispatch({ type: "DELETE_TRIAL", payload: json });
@@ -27,21 +30,27 @@ const TrialCard = ({ trial }: { trial: TrialObject }) => {
         trial.members.push(user.email);
         console.log(trial.members);
         const details = { members: trial.members };
-        const response = await fetch("/api/trials/" + trial._id, {
-            method: "PATCH",
-            body: JSON.stringify(details),
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${user.token}`,
-            },
-        });
-        const json = await response.json();
-        if (response.ok) {
-            const response1 = await fetch("/api/trials/" + trial._id, {
+        const response = await fetch(
+            `${process.env.REACT_APP_DB_URL}/api/trials/` + trial._id,
+            {
+                method: "PATCH",
+                body: JSON.stringify(details),
                 headers: {
+                    "Content-Type": "application/json",
                     Authorization: `Bearer ${user.token}`,
                 },
-            });
+            }
+        );
+        const json = await response.json();
+        if (response.ok) {
+            const response1 = await fetch(
+                `${process.env.REACT_APP_DB_URL}/api/trials/` + trial._id,
+                {
+                    headers: {
+                        Authorization: `Bearer ${user.token}`,
+                    },
+                }
+            );
             const json2 = await response1.json();
             dispatch({ type: "JOIN_TRIAL", payload: json2 });
         }
@@ -53,21 +62,27 @@ const TrialCard = ({ trial }: { trial: TrialObject }) => {
         );
         console.log(newMembers);
         const details = { members: newMembers };
-        const response = await fetch("/api/trials/" + trial._id, {
-            method: "PATCH",
-            body: JSON.stringify(details),
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${user.token}`,
-            },
-        });
-        const json = await response.json();
-        if (response.ok) {
-            const response1 = await fetch("/api/trials/" + trial._id, {
+        const response = await fetch(
+            `${process.env.REACT_APP_DB_URL}/api/trials/` + trial._id,
+            {
+                method: "PATCH",
+                body: JSON.stringify(details),
                 headers: {
+                    "Content-Type": "application/json",
                     Authorization: `Bearer ${user.token}`,
                 },
-            });
+            }
+        );
+        const json = await response.json();
+        if (response.ok) {
+            const response1 = await fetch(
+                `${process.env.REACT_APP_DB_URL}/api/trials/` + trial._id,
+                {
+                    headers: {
+                        Authorization: `Bearer ${user.token}`,
+                    },
+                }
+            );
             const json2 = await response1.json();
             dispatch({ type: "LEAVE_TRIAL", payload: json2 });
         }

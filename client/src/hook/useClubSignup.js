@@ -11,7 +11,7 @@ export const useClubSignup = () => {
         setIsLoading(true);
         setError(null);
 
-        const response = await fetch('/api/auth/signup', {
+        const response = await fetch(`${process.env.REACT_APP_DB_URL}/api/auth/signup`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({email, password, role})
@@ -24,7 +24,7 @@ export const useClubSignup = () => {
             console.log(error);
         }
         if (response.ok) {
-            const response2 = await fetch('/api/clubs/', {
+            const response2 = await fetch(`${process.env.REACT_APP_DB_URL}/api/clubs/`, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({name, contact, year, description, venue, email})

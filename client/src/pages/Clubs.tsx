@@ -6,7 +6,7 @@ const header = require("../assets/clubheader.png");
 
 const Clubs = () => {
     const [profile, setProfile] = useState<any>();
-    const str = "/api/clubs";
+    const str = `${process.env.REACT_APP_DB_URL}/api/clubs`;
 
     useEffect(() => {
         const fetchProfile = async () => {
