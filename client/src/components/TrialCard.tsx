@@ -18,7 +18,7 @@ type TrialObject = {
     email: string;
 };
 
-const TrialCard = ({ trial, email }: { trial: TrialObject; email: string }) => {
+const TrialCard = ({ trial }: { trial: TrialObject }) => {
     const currentDate = new Date(trial.date);
     const { dispatch } = useTrialsContext();
     const { user } = useAuthContext();
@@ -105,13 +105,15 @@ const TrialCard = ({ trial, email }: { trial: TrialObject; email: string }) => {
                     <p className="font-medium">
                         Number of participants: {trial.members.length}
                     </p>
-                    {user.email === trial.email && (
+                    {user && user.email === trial.email && (
                         <button className="rounded-md border-2 border-lime whitespace-nowrap px-5 mr-3 font-medium font-montserrat">
-                            <Link to="/trials/view">View More </Link>
+                            <Link to="/trials/view" state={trial}>
+                                View More{" "}
+                            </Link>
                         </button>
                     )}
 
-                    {trial.email === email && (
+                    {user && trial.email === user.email && (
                         <button
                             className="rounded-md border-2 border-lime whitespace-nowrap px-5 font-medium font-montserrat"
                             onClick={handleDelete}
@@ -121,8 +123,8 @@ const TrialCard = ({ trial, email }: { trial: TrialObject; email: string }) => {
                     )}
                     {user &&
                         user.role === "Player" &&
-                        trial.email !== email &&
-                        !trial.members.includes(email) && (
+                        trial.email !== user.email &&
+                        !trial.members.includes(user.email) && (
                             <button
                                 className="rounded-md border-2 border-lime whitespace-nowrap px-5 font-medium font-montserrat"
                                 onClick={handleJoin}
@@ -130,9 +132,10 @@ const TrialCard = ({ trial, email }: { trial: TrialObject; email: string }) => {
                                 Join
                             </button>
                         )}
-                    {user.role === "Player" &&
-                        trial.email !== email &&
-                        trial.members.includes(email) && (
+                    {user &&
+                        user.role === "Player" &&
+                        trial.email !== user.email &&
+                        trial.members.includes(user.email) && (
                             <button
                                 className="rounded-md border-2 border-lime whitespace-nowrap px-5 font-medium font-montserrat"
                                 onClick={handleLeave}

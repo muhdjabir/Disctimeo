@@ -25,8 +25,6 @@ const Trials = () => {
     const { trials, dispatch } = useTrialsContext();
     const { user } = useAuthContext();
 
-    const email: string = user ? user.email : "";
-
     useEffect(() => {
         const fetchTrials = async () => {
             const response = await fetch("/api/trials/");
@@ -60,11 +58,7 @@ const Trials = () => {
                 <div className="text-black body-font font-poppins mx-auto">
                     {trials &&
                         trials.map((prof: TrialObject) => (
-                            <TrialCard
-                                key={prof._id}
-                                trial={prof}
-                                email={email}
-                            />
+                            <TrialCard key={prof._id} trial={prof} />
                         ))}
                 </div>
             </div>
