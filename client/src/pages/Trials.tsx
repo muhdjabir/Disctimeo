@@ -14,7 +14,9 @@ const Trials = () => {
 
     useEffect(() => {
         const fetchTrials = async () => {
-            const response = await fetch("/api/trials/");
+            const response = await fetch(
+                `${process.env.REACT_APP_DB_URL}/api/trials/`
+            );
             const json = await response.json();
 
             if (response.ok) {

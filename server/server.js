@@ -2,6 +2,7 @@ require('dotenv').config()
 
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const userRoutes = require('./routes/users');
 const authRoutes = require('./routes/auth');
 const clubRoutes = require('./routes/club');
@@ -14,6 +15,7 @@ const app = express();
 
 // middleware
 app.use(express.json());  // Allows for the passing in of json object for req
+app.use(cors());
 
 app.use((req, res, next) => {
     console.log(req.path, req.method)
