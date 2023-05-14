@@ -1,17 +1,8 @@
 import { useState, useEffect } from "react";
 import ClubCard from "../components/ClubCard";
+import { ClubProfileObject } from "../TypeSheet";
 
 const header = require("../assets/clubheader.png");
-
-type ClubProfileObject = {
-    name: string;
-    contact: number;
-    year: string;
-    description: string;
-    venue: string;
-    members: string[];
-    email: string;
-};
 
 const Clubs = () => {
     const [profile, setProfile] = useState<any>();

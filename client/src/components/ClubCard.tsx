@@ -1,16 +1,7 @@
 import { Link } from "react-router-dom";
+import { ClubProfileObject } from "../TypeSheet";
 
 const logo = require("../assets/logo.png");
-
-type ClubProfileObject = {
-    name: string;
-    contact: number;
-    year: string;
-    description: string;
-    venue: string;
-    members: string[];
-    email: string;
-};
 
 const ClubCard = ({ profile }: { profile: ClubProfileObject }) => {
     return (

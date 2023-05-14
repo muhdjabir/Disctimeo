@@ -1,13 +1,6 @@
-const logo = require("../assets/logo.png");
+import { ProfileObject } from "../TypeSheet";
 
-type ProfileObject = {
-    name: string;
-    contact: number;
-    years: string;
-    position: string;
-    level: string;
-    club: string;
-};
+const logo = require("../assets/logo.png");
 
 const ProfileCard = ({
     profile,

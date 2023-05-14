@@ -4,19 +4,9 @@ import { useAuthContext } from "../hook/useAuthContext";
 import { Link } from "react-router-dom";
 import ScrimCard from "../components/ScrimCard";
 import ScrimForm from "../components/ScrimForm";
+import { ScrimObject } from "../TypeSheet";
 
 const header = require("../assets/scrimheader.png");
-
-type ScrimObject = {
-    _id: string;
-    name: string;
-    date: Date;
-    time: string;
-    description: string;
-    venue: string;
-    members: string[];
-    email: string;
-};
 
 const Scrimmages = () => {
     const { scrims, dispatch } = useScrimsContext();

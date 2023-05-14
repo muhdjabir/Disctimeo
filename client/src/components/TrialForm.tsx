@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useTrialsContext } from "../hook/useTrialsContext";
 import { useAuthContext } from "../hook/useAuthContext";
 import { AiFillFileAdd } from "react-icons/ai";
-// import DatePicker from "react-datepicker";
 
 const TrialForm = () => {
     const { dispatch } = useTrialsContext();

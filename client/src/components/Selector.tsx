@@ -1,11 +1,6 @@
 import { useState } from "react";
 import { BiChevronDown } from "react-icons/bi";
-
-type SelectorTypes = {
-    options: string[];
-    comp: string;
-    updateState: (id: string) => void;
-};
+import { SelectorTypes } from "../TypeSheet";
 
 const Selector = ({ options, comp, updateState }: SelectorTypes) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars

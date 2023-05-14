@@ -1,17 +1,9 @@
 import { useEffect, useState } from "react";
 import ProfileCard from "../components/ProfileCard";
 import { useAuthContext } from "../hook/useAuthContext";
+import { ProfileObject } from "../TypeSheet";
 
 const header = require("../assets/feedheader.png");
-
-type ProfileObject = {
-    name: string;
-    contact: number;
-    years: string;
-    position: string;
-    level: string;
-    club: string;
-};
 
 const Feed = () => {
     const [profile, setProfile] = useState<any>();

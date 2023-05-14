@@ -1,22 +1,9 @@
 import { useAuthContext } from "../hook/useAuthContext";
 import { useTrialsContext } from "../hook/useTrialsContext";
 import { Link } from "react-router-dom";
+import { TrialObject } from "../TypeSheet";
 
 const logo = require("../assets/logo.png");
-
-type TrialObject = {
-    _id: string;
-    club: string;
-    name: string;
-    date: Date;
-    time: string;
-    description: string;
-    venue: string;
-    registration: string;
-    members: string[];
-    information: string;
-    email: string;
-};
 
 const TrialCard = ({ trial }: { trial: TrialObject }) => {
     const currentDate = new Date(trial.date);

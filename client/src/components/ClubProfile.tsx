@@ -2,27 +2,9 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useAuthContext } from "../hook/useAuthContext";
 import ProfileCard from "./ProfileCard";
+import { ClubProfileObject, ProfileObject } from "../TypeSheet";
 
 const logo = require("../assets/rascals.jpg");
-
-type ClubProfileObject = {
-    name: string;
-    contact: number;
-    year: string;
-    description: string;
-    venue: string;
-    members: string[];
-};
-
-type ProfileObject = {
-    name: string;
-    contact: number;
-    years: string;
-    position: string;
-    level: string;
-    club: string;
-    email: string;
-};
 
 const ClubProfile = ({ profile }: { profile: ClubProfileObject }) => {
     const { user } = useAuthContext();

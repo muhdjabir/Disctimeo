@@ -4,22 +4,9 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import TrialCard from "../components/TrialCard";
 import TrialForm from "../components/TrialForm";
+import { TrialObject } from "../TypeSheet";
 
 const header = require("../assets/trialsheader.png");
-
-type TrialObject = {
-    _id: string;
-    club: string;
-    name: string;
-    date: Date;
-    time: string;
-    description: string;
-    venue: string;
-    registration: string;
-    members: string[];
-    information: string;
-    email: string;
-};
 
 const Trials = () => {
     const { trials, dispatch } = useTrialsContext();

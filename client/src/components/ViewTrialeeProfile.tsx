@@ -1,35 +1,10 @@
 import { useState, useEffect } from "react";
-import { useAuthContext } from "../hook/useAuthContext";
 import ProfileCard from "./ProfileCard";
+import { TrialObject, ProfileObject } from "../TypeSheet";
 
 const logo = require("../assets/rascals.jpg");
 
-type TrialObject = {
-    _id: string;
-    club: string;
-    name: string;
-    date: Date;
-    time: string;
-    description: string;
-    venue: string;
-    registration: string;
-    members: string[];
-    information: string;
-    email: string;
-};
-
-type ProfileObject = {
-    name: string;
-    contact: number;
-    years: string;
-    position: string;
-    level: string;
-    club: string;
-    email: string;
-};
-
 const ViewTrialeeProfile = ({ trialees }: { trialees: TrialObject }) => {
-    const { user } = useAuthContext();
     const [prof, setProf] = useState<any>();
     const date = new Date(trialees.date);
     const str = "/api/users/";

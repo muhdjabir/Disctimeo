@@ -1,19 +1,9 @@
 import { useAuthContext } from "../hook/useAuthContext";
 import { useScrimsContext } from "../hook/useScrimsContext";
+import { ScrimObject } from "../TypeSheet";
 // import { Link } from "react-router-dom";
 
 const logo = require("../assets/logo.png");
-
-type ScrimObject = {
-    _id: string;
-    name: string;
-    date: Date;
-    time: string;
-    description: string;
-    venue: string;
-    members: string[];
-    email: string;
-};
 
 const ScrimCard = ({ scrim, email }: { scrim: ScrimObject; email: string }) => {
     const currentDate = new Date(scrim.date);
