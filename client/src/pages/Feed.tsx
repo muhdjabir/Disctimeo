@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import ProfileCard from "../components/ProfileCard";
 import { useAuthContext } from "../hook/useAuthContext";
 
+const header = require("../assets/feedheader.png");
+
 type ProfileObject = {
     name: string;
     contact: number;
@@ -35,14 +37,22 @@ const Feed = () => {
     }, []);
 
     return (
-        <div className="text-center font-montserrat">
-            <h1 className="text-3xl mb-5">Community</h1>
-            <div className="text-black body-font font-poppins mx-auto grid lg:grid-cols-3 ">
-                {!profile && <h1 className="col-span-3">Fetching results</h1>}
-                {profile &&
-                    profile.map((prof: ProfileObject) => (
-                        <ProfileCard key={prof.name} profile={prof} />
-                    ))}
+        <div className="text-center font-montserrat justify-center">
+            <div className="mx-auto">
+                <img className="mx-auto" src={header} alt="" />
+                <div className="text-black body-font font-poppins mx-auto grid lg:grid-cols-3 ">
+                    {!profile && (
+                        <h1 className="col-span-3">Fetching results</h1>
+                    )}
+                    {profile &&
+                        profile.map((prof: ProfileObject) => (
+                            <ProfileCard
+                                key={prof.name}
+                                profile={prof}
+                                feed={true}
+                            />
+                        ))}
+                </div>
             </div>
         </div>
     );

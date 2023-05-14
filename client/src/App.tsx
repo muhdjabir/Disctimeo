@@ -16,6 +16,7 @@ import ProfilePage from "./pages/Profile";
 import EditProfile from "./pages/EditProfile";
 import Tournaments from "./pages/Tournaments";
 import ViewClub from "./pages/ViewClub";
+import ViewTrialees from "./pages/ViewTrialees";
 
 function App() {
     const { user } = useAuthContext();
@@ -57,6 +58,7 @@ function App() {
                         <Route path="/clubs" element={<Clubs />} />
                         <Route path="/clubs/view" element={<ViewClub />} />
                         <Route path="/trials" element={<Trials />} />
+                        <Route path="/trials/view" element={<ViewTrialees />} />
                         <Route path="/tournaments" element={<Tournaments />} />
                         <Route
                             path="/profile"

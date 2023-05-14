@@ -109,6 +109,7 @@ const ClubProfile = ({ profile }: { profile: ClubProfileObject }) => {
                                                     <ProfileCard
                                                         key={pro.name}
                                                         profile={pro}
+                                                        feed={false}
                                                     />
                                                 ))}{" "}
                                     </div>

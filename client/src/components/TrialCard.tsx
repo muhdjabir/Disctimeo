@@ -1,6 +1,6 @@
 import { useAuthContext } from "../hook/useAuthContext";
 import { useTrialsContext } from "../hook/useTrialsContext";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const logo = require("../assets/logo.png");
 
@@ -95,7 +95,7 @@ const TrialCard = ({ trial, email }: { trial: TrialObject; email: string }) => {
                     </div>
                     <div className="flex-auto w-64">
                         <h4>
-                            {trial.club} {trial.description}
+                            {trial.club} {trial.name}
                         </h4>
                         <h4 className="font-medium">Timing: {trial.time}</h4>
                         <h4 className="font-medium">Venue: {trial.venue}</h4>
@@ -107,8 +107,7 @@ const TrialCard = ({ trial, email }: { trial: TrialObject; email: string }) => {
                     </p>
                     {user.email === trial.email && (
                         <button className="rounded-md border-2 border-lime whitespace-nowrap px-5 mr-3 font-medium font-montserrat">
-                            {/* <Link to="/clubs/view" state={trial}> */}
-                            View More {/* </Link> */}
+                            <Link to="/trials/view">View More </Link>
                         </button>
                     )}
 

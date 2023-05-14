@@ -9,7 +9,13 @@ type ProfileObject = {
     club: string;
 };
 
-const ProfileCard = ({ profile }: { profile: ProfileObject }) => {
+const ProfileCard = ({
+    profile,
+    feed,
+}: {
+    profile: ProfileObject;
+    feed: boolean;
+}) => {
     return (
         <div className="items-start justify-center text-left bg-slate shadow-lg m-5 p-5 font-montserrat font-semibold">
             <div className="flex">
@@ -22,7 +28,7 @@ const ProfileCard = ({ profile }: { profile: ProfileObject }) => {
                 </div>
             </div>
             <div className="font-normal">
-                <p>Contact Number: {profile.contact}</p>
+                {!feed && <p>Contact Number: {profile.contact}</p>}
                 <p>Preferred Position: {profile.position}</p>
             </div>
         </div>

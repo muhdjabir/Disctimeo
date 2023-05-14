@@ -108,6 +108,7 @@ const ViewClubProfile = ({ profile }: { profile: ClubProfileObject }) => {
                                                     <ProfileCard
                                                         key={pro.name}
                                                         profile={pro}
+                                                        feed={true}
                                                     />
                                                 ))}
                                     </div>
