@@ -17,7 +17,7 @@ const Hero = () => {
                     </p>
                     <div className="flex flex-row gap-10">
                         <button className="bg-orange w-[200px] rounded-md font-medium my-6 mx-auto md:mx-0 py-3">
-                            Join Us
+                            <Link to="/register">Join Us</Link>
                         </button>
                         <button className="text-xs font-montserrat text-center text-darkgrey underline">
                             <Link to="/scrimmages">
