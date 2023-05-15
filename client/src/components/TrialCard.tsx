@@ -99,13 +99,13 @@ const TrialCard = ({ trial }: { trial: TrialObject }) => {
                         <h4>
                             {trial.club} {trial.name}
                         </h4>
-                        <h4 className="font-medium ">Time: {trial.time}</h4>
-                        <h4 className="font-medium ">Venue: {trial.venue}</h4>
+                        <h4 className="font-medium ">{trial.time}</h4>
+                        <h4 className="font-medium ">{trial.venue}</h4>
                     </div>
                 </div>
                 <div className="ml-auto">
-                    <p className="font-medium">
-                        Number of participants: {trial.members.length}
+                    <p className="font-medium text-right">
+                        Participants: {trial.members.length}
                     </p>
                     {user && user.email === trial.email && (
                         <button className="rounded-md border-2 border-lime whitespace-nowrap px-5 mr-3 font-medium font-montserrat">

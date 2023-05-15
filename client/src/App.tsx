@@ -27,6 +27,10 @@ function App() {
     return (
         <div className="text-2xl font-bold h-screen bg-white">
             <Helmet helmetData={helmetData}>
+                <meta
+                    name="description"
+                    content="Singapore Ultimate's Community Hub"
+                />
                 <title>Disctimeo</title>
             </Helmet>
             <BrowserRouter>

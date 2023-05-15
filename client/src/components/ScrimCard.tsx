@@ -92,7 +92,7 @@ const ScrimCard = ({ scrim, email }: { scrim: ScrimObject; email: string }) => {
         <div className="items-start justify-center text-left bg-slate shadow-lg m-5 p-5 font-montserrat font-semibold text-lg md:text-2xl">
             <div className="grid mx-auto grid-cols-2">
                 <div className="flex">
-                    <div className="flex-none">
+                    <div className="flex-none hidden">
                         <img src={logo} alt="" />{" "}
                     </div>
                     <div className="flex-auto w-64">
@@ -101,8 +101,8 @@ const ScrimCard = ({ scrim, email }: { scrim: ScrimObject; email: string }) => {
                     </div>
                 </div>
                 <div className="ml-auto">
-                    <p className="font-medium">
-                        Number of participants: {scrim.members.length}
+                    <p className="font-medium text-right">
+                        Participants: {scrim.members.length}
                     </p>
                     {user && (
                         <button className="rounded-md border-2 border-lime whitespace-nowrap px-5 mr-3 font-medium font-montserrat">
@@ -143,7 +143,7 @@ const ScrimCard = ({ scrim, email }: { scrim: ScrimObject; email: string }) => {
             </div>
             <div className="font-normal grid mx-auto grid-cols-2">
                 <p>Organiser: {scrim.email} </p>
-                <p>Date: {currentDate.toDateString()}</p>
+                <p>{currentDate.toDateString()}</p>
                 <p>{scrim.description}</p>
             </div>
         </div>
