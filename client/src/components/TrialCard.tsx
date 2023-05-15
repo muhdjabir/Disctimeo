@@ -89,18 +89,18 @@ const TrialCard = ({ trial }: { trial: TrialObject }) => {
     };
 
     return (
-        <div className="items-start justify-center text-left bg-slate shadow-lg m-5 p-5 font-montserrat font-semibold">
+        <div className="items-start justify-center text-left bg-slate shadow-lg m-5 p-5 font-montserrat font-semibold text-lg md:text-2xl">
             <div className="grid mx-auto grid-cols-2">
                 <div className="flex">
                     <div className="flex-none">
                         <img src={logo} alt="" />{" "}
                     </div>
-                    <div className="flex-auto w-64">
+                    <div className="lg:font-medium flex-auto w-64 ">
                         <h4>
                             {trial.club} {trial.name}
                         </h4>
-                        <h4 className="font-medium">Timing: {trial.time}</h4>
-                        <h4 className="font-medium">Venue: {trial.venue}</h4>
+                        <h4 className="font-medium ">Time: {trial.time}</h4>
+                        <h4 className="font-medium ">Venue: {trial.venue}</h4>
                     </div>
                 </div>
                 <div className="ml-auto">
@@ -110,7 +110,7 @@ const TrialCard = ({ trial }: { trial: TrialObject }) => {
                     {user && user.email === trial.email && (
                         <button className="rounded-md border-2 border-lime whitespace-nowrap px-5 mr-3 font-medium font-montserrat">
                             <Link to="/trials/view" state={trial}>
-                                View More{" "}
+                                View More
                             </Link>
                         </button>
                     )}
@@ -149,7 +149,9 @@ const TrialCard = ({ trial }: { trial: TrialObject }) => {
             </div>
             <div className="font-normal grid mx-auto grid-cols-2">
                 <p>Organiser: {trial.email} </p>
-                <p>Date: {currentDate.toDateString()}</p>
+                <p className="text-right md:text-left">
+                    Date: {currentDate.toDateString()}
+                </p>
                 <p>{trial.description}</p>
             </div>
         </div>

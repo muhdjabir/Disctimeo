@@ -103,9 +103,19 @@ const Navbar = () => {
                         {user && (
                             <div>
                                 <p>{user.email}</p>
-                                <button className=" font-montserrat border-2 border-lime px-5">
+                                <button
+                                    className=" font-montserrat border-2 border-lime px-5"
+                                    onClick={handleNav}
+                                >
                                     <Link to="/profile">View Profile</Link>
                                 </button>{" "}
+                                <button
+                                    type="button"
+                                    className="rounded-md text-xl bg-lime items-center whitespace-nowrap px-5 "
+                                    onClick={handleClick}
+                                >
+                                    <Link to="/">Logout</Link>
+                                </button>
                             </div>
                         )}
                     </div>
@@ -120,19 +130,19 @@ const Navbar = () => {
                         </li>
                     </div>
                 )}
-                <li className="p-4 text-2xl">
+                <li className="p-4 text-2xl" onClick={handleNav}>
                     <Link to="/feed">Feed</Link>
                 </li>
-                <li className="p-4 text-2xl">
+                <li className="p-4 text-2xl" onClick={handleNav}>
                     <Link to="/trials">Trials</Link>
                 </li>
-                <li className="p-4 text-2xl">
+                <li className="p-4 text-2xl" onClick={handleNav}>
                     <Link to="/clubs">Club</Link>
                 </li>
-                <li className="p-4 text-2xl">
+                <li className="p-4 text-2xl" onClick={handleNav}>
                     <Link to="/scrimmages">Pickups</Link>
                 </li>
-                <li className="p-4 text-2xl">
+                <li className="p-4 text-2xl" onClick={handleNav}>
                     <Link to="/tournaments">Tournaments</Link>
                 </li>
             </ul>
