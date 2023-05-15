@@ -6,6 +6,8 @@ Disctimeo is a project I thought of while preparing for my finals and was extrem
 
 ## Deployment
 
+https://disctimeo-sg.onrender.com/
+
 ## Issues
 
 If you have any issues or suggestions regarding existing or new features, do not hesitate to bring them up in the Issues segment
