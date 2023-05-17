@@ -6,6 +6,10 @@ import { ClubProfileObject, ProfileObject } from "../TypeSheet";
 
 const logo = require("../assets/rascals.jpg");
 
+// Personal View of the Club Profile page that is generated after
+// fetching data from mongoDB, also generates a card view of players
+// that are in the club.
+// ##FUTURE might implement an interface for clubs to add new players
 const ClubProfile = ({ profile }: { profile: ClubProfileObject }) => {
     const { user } = useAuthContext();
     const [prof, setProf] = useState<any>();
@@ -68,16 +72,8 @@ const ClubProfile = ({ profile }: { profile: ClubProfileObject }) => {
                         <div className="mt-10 py-10  text-center">
                             <div className="flex flex-wrap justify-center">
                                 <div className="w-full px-4">
-                                    {/* <p className="mb-4 text-lg leading-relaxed text-blueGray-700">
-                                        An artist of considerable range, Jenna
-                                        the name taken by Melbourne-raised,
-                                        Brooklyn-based Nick Murphy writes,
-                                        performs and records all of his own
-                                        music, giving it a warm, intimate feel
-                                        with a solid groove structure. An artist
-                                        of considerable range.
-                                    </p> */}
-
+                                    {/* Fetches all the players in database then displays those
+                                    Who are members of the club */}
                                     <h1 className="text-2xl "> Players:</h1>
                                     <div className="mx-auto grid lg:grid-cols-2">
                                         {prof &&

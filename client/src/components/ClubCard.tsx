@@ -3,6 +3,8 @@ import { ClubProfileObject } from "../TypeSheet";
 
 const logo = require("../assets/logo.png");
 
+// Card View of ClubProfileObject that displays Club details,
+// as per fetched from mongoDB
 const ClubCard = ({ profile }: { profile: ClubProfileObject }) => {
     return (
         <div className="items-start justify-center text-left bg-slate shadow-lg m-5 p-5 font-montserrat font-semibold text-lg md:text-2xl">

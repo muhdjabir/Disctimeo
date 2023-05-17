@@ -6,6 +6,9 @@ import { useLogout } from "../hook/useLogout";
 
 const logo = require("../assets/logo.png");
 
+// Overall application navigation bar that is mobile responsive
+// Renders a hamburger drawer navigation bar for mobile devices
+// For larger screens, just generates a top navigationbar
 const Navbar = () => {
     const [nav, setNav] = useState<boolean>(false);
     const { user } = useAuthContext();
@@ -46,6 +49,7 @@ const Navbar = () => {
                     </li>
                 </ul>
             </div>
+            {/* If user is not logged in, buttons rendered to lead them to user authentication page */}
             {!user && (
                 <div className="justify-between items-l flex-row gap-10 hidden md:flex bg-white ">
                     <button
@@ -62,6 +66,8 @@ const Navbar = () => {
                     </button>
                 </div>
             )}
+            {/* If user is logged in, renders View Profile and Logout button
+            to route user to their profile page */}
             {user && (
                 <div className="justify-between items-l flex-row gap-10 hidden md:flex bg-white ">
                     <h1 className="mt-3">{user.email}</h1>
@@ -80,6 +86,7 @@ const Navbar = () => {
                     </button>
                 </div>
             )}
+            {/* Hamburger bar to toggle the navigation bar on mobile screens */}
             <div onClick={handleNav} className="block md:hidden">
                 {nav ? (
                     <AiOutlineClose size={20} />

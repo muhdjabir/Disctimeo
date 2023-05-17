@@ -4,6 +4,9 @@ import { TrialObject, ProfileObject } from "../TypeSheet";
 
 const logo = require("../assets/rascals.jpg");
 
+// Component to generate the list CardView of Trialees for a specific Trial Entry
+// fetches all the users and displays only those inside the members array of the
+// Trial Entry
 const ViewTrialeeProfile = ({ trialees }: { trialees: TrialObject }) => {
     const [prof, setProf] = useState<any>();
     const date = new Date(trialees.date);

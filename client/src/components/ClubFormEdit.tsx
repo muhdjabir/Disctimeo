@@ -1,6 +1,9 @@
 import { useAuthContext } from "../hook/useAuthContext";
 import { useEffect, useState } from "react";
 
+// Edit form that handles the update of the Club Profile details in
+// MongoDB. Upon submission, sends a PATCH request to mongoDB to update
+// the club profile.
 const ClubFormEdit = () => {
     const [profile, setProfile] = useState<any>();
     const { user } = useAuthContext();

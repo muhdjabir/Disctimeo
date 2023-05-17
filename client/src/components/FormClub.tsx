@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useClubSignup } from "../hook/useClubSignup";
 
+// New User registration form for new club accounts
 const FormClub = () => {
     const [email, setEmail] = useState<String>("");
     const [password, setPassword] = useState<String>("");

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 const team = require("../assets/team.jpg");
 
+// Component for landing page to route visitors to club registration page
 const ClubPrompt = () => {
     return (
         <div className="w-full bg-white py-16 px-4">
