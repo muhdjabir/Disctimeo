@@ -1,5 +1,7 @@
 import { useAuthContext } from "./useAuthContext";
 
+// Logout Function updates the localStorage to no longer contain user
+// and removes the token
 export const useLogout = () => {
     const { dispatch } = useAuthContext();
 

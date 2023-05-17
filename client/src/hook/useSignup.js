@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 
+// Signup hook that sends POST request to /api/auth/signup
+// to create a new auth entry. Upon success user is logged in 
+// similar to useLogin hook
 export const useSignup = () => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(null);
