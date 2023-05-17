@@ -6,6 +6,9 @@ import { ReportFileInError } from "typescript";
 
 const header = require("../assets/feedheader.png");
 
+// Feed page that displays all existing users in the system
+// Future plans to implement a community chatbot/blog/tweet feature
+// allowing users to connect with one another
 const Feed = () => {
     const [profile, setProfile] = useState<any>();
     const [search, setSearch] = useState<string>("");
@@ -30,6 +33,9 @@ const Feed = () => {
         console.log(JSON.stringify(profile));
     }, []);
 
+    // Conditional Filter function to be passed into filter
+    // that checks whether any of the ProfileObject properties
+    // includes any part of the search state
     const searchFilter = (profile: ProfileObject) => {
         if (
             profile.level.toLowerCase().includes(search.toLowerCase()) ||
@@ -45,6 +51,7 @@ const Feed = () => {
         <div className="text-center font-montserrat justify-center">
             <div className="mx-auto">
                 <img className="mx-auto" src={header} alt="" />
+                {/* Search function in order to search for a specific group/user */}
                 <form className="lg:max-w-[80%] p-4 mx-auto">
                     <div className="relative">
                         <svg

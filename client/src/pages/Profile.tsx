@@ -3,6 +3,10 @@ import { useAuthContext } from "../hook/useAuthContext";
 import PlayerProfile from "../components/PlayerProfile";
 import ClubProfile from "../components/ClubProfile";
 
+// Profile Page that displays current user information
+// ClubProfile or PlayerProfile are conditionally rendered
+// based on user role
+// Can navigate to edit profile page
 const ProfilePage = () => {
     const [profile, setProfile] = useState<any>();
     const { user } = useAuthContext();
@@ -14,6 +18,8 @@ const ProfilePage = () => {
         email;
     console.log(str);
 
+    // Posting a GET request to mongoDB to retrieve user profile
+    // and set the profile
     useEffect(() => {
         const fetchProfile = async () => {
             const response = await fetch(str, {
@@ -29,7 +35,6 @@ const ProfilePage = () => {
         if (user) {
             fetchProfile();
         }
-        console.log(JSON.stringify(profile));
     }, []);
 
     return (

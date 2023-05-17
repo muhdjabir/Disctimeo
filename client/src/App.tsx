@@ -22,6 +22,10 @@ import ViewTrialees from "./pages/ViewTrialees";
 const helmetData = new HelmetData({});
 
 function App() {
+    // App consists of 7 main pages connected by Routers
+    // 7 pages are Landing, User Authentication, Feed, Trials, Club, Pickups and Tournaments
+    // Access to Feed is blocked by user authentication
+    // Trials, Club Pickups and tournaments can be viewed by visitors but they cannot modify data
     const { user } = useAuthContext();
 
     return (

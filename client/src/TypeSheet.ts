@@ -1,3 +1,6 @@
+// Typesheet file that contains all the types required for the various components.
+
+// TrialObject used for components involving Trials,
 export type TrialObject = {
     _id: string;
     club: string;
@@ -12,6 +15,7 @@ export type TrialObject = {
     email: string;
 };
 
+// ProfileObject used for user/player information,
 export type ProfileObject = {
     name: string;
     contact: number;
@@ -22,6 +26,7 @@ export type ProfileObject = {
     email: string;
 };
 
+// ClubProfileObject used for club information
 export type ClubProfileObject = {
     name: string;
     contact: number;
@@ -32,6 +37,7 @@ export type ClubProfileObject = {
     email: string;
 };
 
+// ScrimObject used for componnents involving Scrims
 export type ScrimObject = {
     _id: string;
     name: string;
