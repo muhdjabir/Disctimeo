@@ -40,3 +40,32 @@ My aim for DiscTimeo is to create a community hub and website that allows Ultima
 5.  As a Club President, I want to be able to display information about my club to prospective players so that awareness would be raised,
 6.  As a Club President, I want to be able to post about upcoming trials so that I can attract more players to join my trials.
 7.  As a Club President, I want to be able to see registered trialees contact details so that I can easily contact them regarding future steps.
+
+## Disctimeo User Interface
+<h2 align="center">Landing Page</h2>
+<p align="center">
+          <img width="400" alt="Landing" src="https://github.com/muhdjabir/Disctimeo/assets/99940885/32f905e0-722c-4855-bf55-88546bd9e309"  />
+</p>
+
+<h2 align="center">User Authentication </h2>
+<p align="center">
+  <img width="360" alt="Landing" src="https://github.com/muhdjabir/Disctimeo/assets/99940885/41f98e1e-43f3-434d-9458-aa170836c9b0"  />
+  <img width="300" alt="Landing" src="https://github.com/muhdjabir/Disctimeo/assets/99940885/7eae8f1d-e5c9-4d9d-b6b7-462dd6d27ff8"  />
+  <img width="300" alt="Landing" src="https://github.com/muhdjabir/Disctimeo/assets/99940885/459e8309-41b3-46a3-9504-b9a3116753d6"  />
+</p>
+
+<h2 align="center">Profiles </h2>
+<p align="center">
+  <img width="430" alt="Landing" src="https://github.com/muhdjabir/Disctimeo/assets/99940885/a98e21ce-be1e-46ba-9881-eec3fb48ee13"  />
+  <img width="405" alt="Landing" src="https://github.com/muhdjabir/Disctimeo/assets/99940885/dab203f8-e2e8-44f9-a02e-1b34b8f135db"  />
+</p>
+
+<h2 align="center">Profile Lists </h2>
+  <img width="510" alt="Landing" src="https://github.com/muhdjabir/Disctimeo/assets/99940885/3e2888ae-414e-4ff6-bb55-6fd78a1fc423"  />
+  <img width="400" alt="Landing" src="https://github.com/muhdjabir/Disctimeo/assets/99940885/0bed67a4-577d-4eaf-947c-114431c652c6"  />
+</p>
+
+<h2 align="center">Event Views </h2>
+  <img width="500" alt="Landing" src="https://github.com/muhdjabir/Disctimeo/assets/99940885/5ef9ea77-a495-42d3-920e-98073a855536"  />
+  <img width="430" alt="Landing" src="https://github.com/muhdjabir/Disctimeo/assets/99940885/31e26103-af59-484d-99ae-6b3ba333f0c4"  />
+</p>
