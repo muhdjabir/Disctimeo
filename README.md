@@ -61,11 +61,11 @@ My aim for DiscTimeo is to create a community hub and website that allows Ultima
 </p>
 
 <h2 align="center">Profile Lists </h2>
-  <img width="510" alt="Landing" src="https://github.com/muhdjabir/Disctimeo/assets/99940885/3e2888ae-414e-4ff6-bb55-6fd78a1fc423"  />
+  <img width="400" alt="Landing" src="https://github.com/muhdjabir/Disctimeo/assets/99940885/3e2888ae-414e-4ff6-bb55-6fd78a1fc423"  />
   <img width="400" alt="Landing" src="https://github.com/muhdjabir/Disctimeo/assets/99940885/0bed67a4-577d-4eaf-947c-114431c652c6"  />
 </p>
 
 <h2 align="center">Event Views </h2>
-  <img width="500" alt="Landing" src="https://github.com/muhdjabir/Disctimeo/assets/99940885/5ef9ea77-a495-42d3-920e-98073a855536"  />
-  <img width="430" alt="Landing" src="https://github.com/muhdjabir/Disctimeo/assets/99940885/31e26103-af59-484d-99ae-6b3ba333f0c4"  />
+  <img width="400" alt="Landing" src="https://github.com/muhdjabir/Disctimeo/assets/99940885/5ef9ea77-a495-42d3-920e-98073a855536"  />
+  <img width="400" alt="Landing" src="https://github.com/muhdjabir/Disctimeo/assets/99940885/31e26103-af59-484d-99ae-6b3ba333f0c4"  />
 </p>
